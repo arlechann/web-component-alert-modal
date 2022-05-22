@@ -1,7 +1,23 @@
-type AlertModalAttrs = 'open';
+type AlertModalProps = 'open';
 
 export class AlertModal extends HTMLElement {
-  static get observedAttributes(): AlertModalAttrs[] {
+  private _root: ShadowRoot;
+
+  constructor() {
+    super();
+    this._root = this.attachShadow({ mode: 'closed' });
+  }
+
+  connectedCallback(): void {
+    this.open = !['false', 'null', '0', '', null].includes(this.getAttribute('open'));
+    this.render();
+  }
+
+  attributeChangedCallback(prop: AlertModalProps, oldValue: string, newValue: string): void {
+    this.render();
+  }
+
+  static get observedAttributes(): AlertModalProps[] {
     return ['open'];
   }
 
@@ -15,15 +31,9 @@ export class AlertModal extends HTMLElement {
     } else {
       this.removeAttribute('open');
     }
-    this.render();
-  }
-
-  connectedCallback(): void {
-    this.open = !['false', 'null', '0', '', null].includes(this.getAttribute('open'));
-    this.render();
   }
 
   render(): void {
-    this.textContent = this.open ? 'Open!' : 'Closed';
+    this._root.innerHTML = this.open ? '<h1>Open!</h1>' : '<h1>Closed</h1>';
   }
 }
