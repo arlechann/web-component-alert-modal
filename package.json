@@ -8,11 +8,11 @@
     "watch": "tsc -w",
     "server": "npm run build && http-server -d public"
   },
-  "author": "",
-  "license": "",
+  "author": "arlechann",
+  "license": "CC0-1.0",
   "devDependencies": {
-    "@types/node": "*",
+    "@types/node": "~17.0.35",
     "http-server": "^14.1.0",
-    "typescript": "*"
+    "typescript": "~4.6.4"
   }
 }
