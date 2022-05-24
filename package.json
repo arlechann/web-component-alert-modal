@@ -1,7 +1,7 @@
 {
   "name": "web-components-modal",
   "version": "1.0.0",
-  "description": "",
+  "description": "modal implementation as Web Components",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
