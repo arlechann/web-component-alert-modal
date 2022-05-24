@@ -4,7 +4,12 @@ customElements.define('alert-modal', AlertModal);
 
 const alertModal: AlertModal = document.getElementsByTagName('alert-modal')[0] as AlertModal;
 
-const button: HTMLButtonElement = document.getElementById('button') as HTMLButtonElement;
-button.addEventListener('click', () => {
-  alertModal.open = !alertModal.open;
+const openButton: HTMLButtonElement = document.getElementById('open') as HTMLButtonElement;
+openButton.addEventListener('click', () => {
+  alertModal.open = true;
+})
+
+const closeButton: HTMLButtonElement = document.getElementById('close') as HTMLButtonElement;
+closeButton.addEventListener('click', () => {
+  alertModal.open = false;
 })
