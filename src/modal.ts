@@ -1,6 +1,6 @@
-type AlertModalProps = 'open';
+type ModalProps = 'open';
 
-export class AlertModal extends HTMLElement {
+export class Modal extends HTMLElement {
   private _root: ShadowRoot;
 
   constructor() {
@@ -13,11 +13,11 @@ export class AlertModal extends HTMLElement {
     this.render();
   }
 
-  attributeChangedCallback(prop: AlertModalProps, oldValue: string, newValue: string): void {
+  attributeChangedCallback(prop: ModalProps, oldValue: string, newValue: string): void {
     this.render();
   }
 
-  static get observedAttributes(): AlertModalProps[] {
+  static get observedAttributes(): ModalProps[] {
     return ['open'];
   }
 

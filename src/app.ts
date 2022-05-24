@@ -1,15 +1,15 @@
-import { AlertModal } from "./alertModal.js";
+import { Modal } from "./index.js";
 
-customElements.define('alert-modal', AlertModal);
+customElements.define('x-modal', Modal);
 
-const alertModal: AlertModal = document.getElementsByTagName('alert-modal')[0] as AlertModal;
+const modal: Modal = document.getElementsByTagName('x-modal')[0] as Modal;
 
 const openButton: HTMLButtonElement = document.getElementById('open') as HTMLButtonElement;
 openButton.addEventListener('click', () => {
-  alertModal.open = true;
-})
+  modal.open = true;
+});
 
 const closeButton: HTMLButtonElement = document.getElementById('close') as HTMLButtonElement;
 closeButton.addEventListener('click', () => {
-  alertModal.open = false;
-})
+  modal.open = false;
+});
